@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="styleform.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <form action="" name="myform" id="myform" method="post">
+        <h1 class="heading">REGISTER</h1>
+        <div class="main">
+        <p>First name</p>
+        <input type="text"  name="FirstName" placeholder="first name">
+        <p>Last name</p>
+        <input type="text"  name="LastName" placeholder="last name">
+         <p>Mobile number</p>
+        <input type="number" name="MobileNumber" placeholder="enter your number">
+        <p>Email</p>
+        <input type="email" name="Email" placeholder="enter your email">
+        <!-- <p>Gender</p>
+        <input type="radio" name="gender" value="male" id="male">Male
+        <input type="radio" name="gender" value="female" id="female">Female -->
+        <p>City</p>
+        <input type="text" name="city"  placeholder="enter your city">
+        <p>Date Of Birth</p>
+        <input type="date" name="DOB" placeholder="Date of Birth">
+        <br>
+        <input type="submit"  id="submit" value="Submit">
+        </div>
+        </form>
+       
+    </div>
+   
+        
+        
+        
+        
+        <script>
+			const scriptURL = 'https://script.google.com/macros/s/AKfycbwyX5d6orvbntbwSN18LlDIl2uLy0ExBFUqxMWy7tP7IZLzm6amoFk4bn7VpuJfH8ki/exec'
+			const form = document.forms['myform']
+		  
+			form.addEventListener('submit', e => {
+			  e.preventDefault()
+			  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				.then(response => alert("Thank you! your form is submitted successfully." ))
+				.then(() => {  window.location.reload(); })
+				.catch(error => console.error('Error!', error.message))
+			})
+      
+		  </script>
+     
+
+</body>
+
+</html>
